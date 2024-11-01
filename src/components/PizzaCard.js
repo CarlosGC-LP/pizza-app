@@ -5,8 +5,8 @@ const PizzaCard = ({ pizza }) => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="bg-gray-800 text-white p-4 rounded-lg flex flex-col items-center">
-      <img src="pizza-image-url" alt="Pizza" className="w-full h-40 object-cover rounded-md" />
+    <div className="bg-gray-800 text-white p-4 rounded-lg flex flex-col items-center border border-gray-600 shadow-lg overflow-hidden w-max">
+      <img src={pizza.imageUrl} alt={pizza.name} className="w-48 h-32 object-cover mb-4" />
       <h2 className="text-lg font-bold mt-2">{pizza.name}</h2>
       <p className="text-sm">Precio: S/{pizza.price}</p>
       <p className="text-sm">Rating: {pizza.rating}</p>

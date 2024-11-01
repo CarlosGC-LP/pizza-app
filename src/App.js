@@ -8,12 +8,14 @@ import Payment from './components/Payment';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<PizzaList />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/payment" element={<Payment />} />
-      </Routes>
+      <div className="min-h-screen bg-black"> {/* Cambia el color de fondo aquí */}
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<PizzaList />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
