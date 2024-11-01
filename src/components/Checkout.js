@@ -1,19 +1,18 @@
-import React from "react";
+import React from 'react';
 
-function Checkout() {
+const Checkout = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4">
-      <h1 className="text-xl font-bold mb-4">Checkout</h1>
-      <div className="grid grid-cols-3 gap-4">
-        {/* Cada Pizza seleccionada con detalles */}
-        <div className="bg-gray-800 p-4 rounded-lg">
-          <h2 className="text-lg">Pizza Vegetariana</h2>
-          <p className="text-gray-400">Precio: $40.00</p>
-        </div>
-        {/* Más tarjetas de pizza seleccionadas aquí */}
+    <div className="p-8">
+      <h2 className="text-2xl font-bold mb-4">Checkout</h2>
+      <p>Selecciona el tamaño de la pizza:</p>
+      <div className="flex space-x-4 mt-4">
+        <button className="bg-gray-800 text-white p-2 rounded">S</button>
+        <button className="bg-gray-800 text-white p-2 rounded">M</button>
+        <button className="bg-gray-800 text-white p-2 rounded">L</button>
       </div>
+      <button className="bg-green-500 px-4 py-2 mt-8 rounded-md text-white">Proceder al Pago</button>
     </div>
   );
-}
+};
 
 export default Checkout;

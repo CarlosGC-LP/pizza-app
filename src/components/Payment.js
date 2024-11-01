@@ -1,32 +1,17 @@
-import React, { useState } from "react";
+import React from 'react';
 
-function Payment() {
-  const [showPopup, setShowPopup] = useState(false);
-
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
-  };
-
+const Payment = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4">
-      <h1 className="text-xl font-bold mb-4">Payment</h1>
-      <div className="flex items-center gap-4">
-        <button onClick={togglePopup} className="bg-green-500 p-2 rounded">
-          Pagar con Tarjeta
-        </button>
-        {/* Más botones de métodos de pago */}
+    <div className="p-8">
+      <h2 className="text-2xl font-bold mb-4">Método de Pago</h2>
+      <div className="flex items-center space-x-4">
+        <img src="visa-logo-url" alt="Visa" className="w-12" />
+        <img src="mastercard-logo-url" alt="Mastercard" className="w-12" />
       </div>
-      {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-4 rounded-lg">
-            <h2 className="text-black mb-4">Introduce tus datos de pago</h2>
-            <input type="text" placeholder="Número de tarjeta" className="p-2 mb-2 w-full" />
-            <button onClick={togglePopup} className="bg-red-500 text-white p-2 rounded">Cerrar</button>
-          </div>
-        </div>
-      )}
+      <input type="text" placeholder="Número de tarjeta" className="p-2 border rounded w-full mt-4" />
+      <button className="bg-green-500 px-4 py-2 mt-8 rounded-md text-white">Pagar</button>
     </div>
   );
-}
+};
 
 export default Payment;
