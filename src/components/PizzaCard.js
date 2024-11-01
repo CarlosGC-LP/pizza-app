@@ -1,6 +1,9 @@
 import React from 'react';
 
 const PizzaCard = ({ pizza }) => {
+  if (!pizza) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="bg-gray-800 text-white p-4 rounded-lg flex flex-col items-center">
       <img src="pizza-image-url" alt="Pizza" className="w-full h-40 object-cover rounded-md" />
