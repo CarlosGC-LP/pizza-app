@@ -45,6 +45,9 @@ const Navbar = ({ filter, setFilter, onSortChange }) => {
         <li>
           <Link to="/about" className="text-white mx-2">About us</Link>
         </li>
+        <li>
+          <Link to="/blog" className="text-white mx-2">Blog</Link>
+        </li>
       </ul>
     </nav>
   );

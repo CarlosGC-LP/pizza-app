@@ -1,6 +1,7 @@
 // src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Blog from './components/Blog';
 import Navbar from './components/Navbar';
 import PizzaList from './components/PizzaList';
 import Payment from './components/Payment';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </div>
     </Router>
