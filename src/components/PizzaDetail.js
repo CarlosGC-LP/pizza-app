@@ -4,10 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const PizzaDetail = () => {
   const { pizzaName } = useParams();
-  const navigate = useNavigate(); // Define el hook de navegación
+  const navigate = useNavigate(); 
 
-  // Aquí puedes obtener la información de la pizza de algún lugar
-  // Por simplicidad, aquí hay un ejemplo de datos
   const pizzas = [
     { 
       name: 'Pizza Vegetariana', 
@@ -95,37 +93,33 @@ const PizzaDetail = () => {
     },
   ];    
 
-  // Encuentra la pizza correspondiente
   const pizza = pizzas.find((p) => p.name === pizzaName);
 
-  // Asegúrate de no retornar antes de la declaración de hooks
   const [selectedSize, setSelectedSize] = useState(null);
-  const sizes = ['S', 'M', 'L']; // Tamaños disponibles
+  const sizes = ['S', 'M', 'L'];
 
   if (!pizza) {
     return <div>Pizza no encontrada</div>;
   }
 
   const handleBuyClick = () => {
-    const total = pizza.price; // Calcula el total según el precio de la pizza
+    const total = pizza.price; 
     navigate('/payment', { state: { pizza, total } });
   };
 
   return (
-    <div className="flex items-center justify-center h-screen"> {/* Centra vertical y horizontalmente */}
-      <div className="bg-gray-300 rounded-lg shadow-lg p-6 max-w-sm"> {/* Tarjeta con estilos */}
+    <div className="flex items-center justify-center h-screen"> 
+      <div className="bg-gray-300 rounded-lg shadow-lg p-6 max-w-sm">
         <img
           src={pizza.imageUrl}
           alt={pizza.name}
-          className="w-full h-48 object-cover mb-4 rounded" // Imagen ajustada
+          className="w-full h-48 object-cover mb-4 rounded" 
         />
-        <h1 className="text-xl font-bold text-center mb-2">{pizza.name}</h1> {/* Nombre centrado */}
+        <h1 className="text-xl font-bold text-center mb-2">{pizza.name}</h1> 
         <p className="text-center mb-2">Precio: ${pizza.price}</p>
         <p className="text-center mb-2">Calificación: {pizza.rating}</p>
-        <p className="text-lg mb-2">Rating: {pizza.rating}</p>
         <p className="text-lg mb-4">{pizza.description}</p>
         
-        {/* Sección de tamaño */}
         <div className="mb-4">
           <p className="text-center font-semibold">Tamaño:</p>
           <div className="flex justify-center space-x-2">
@@ -137,7 +131,7 @@ const PizzaDetail = () => {
                     ? 'bg-orange-500 text-white border-orange-500'
                     : 'border-gray-400 text-gray-900 hover:bg-orange-500 hover:text-white'
                 }`}
-                onClick={() => setSelectedSize(size)} // Cambia el tamaño seleccionado
+                onClick={() => setSelectedSize(size)} 
               >
                 {size}
               </button>

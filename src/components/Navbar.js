@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = ({ filter, setFilter }) => { // Recibe filter y setFilter como props
+const Navbar = ({ filter, setFilter, onSortChange }) => { 
   const location = useLocation();
   const showSearch = location.pathname === '/';
+
+  const handleSortChange = (event) => {
+    onSortChange(event.target.value);
+  };
 
   return (
     <nav className="bg-gray-900 p-4 flex justify-between items-center">
@@ -15,10 +19,14 @@ const Navbar = ({ filter, setFilter }) => { // Recibe filter y setFilter como pr
           type="text"
           placeholder="Search for pizza.."
           className="p-2 rounded-md text-gray-900 w-96 focus:bg-gray-300 transition duration-200"
-          value={filter} // Usa el valor del filtro
-          onChange={(e) => setFilter(e.target.value)} // Actualiza el filtro
+          value={filter} 
+          onChange={(e) => setFilter(e.target.value)} 
         />
       )}
+      <select onChange={handleSortChange} className="ml-4 p-2 rounded-md">
+        <option value="asc">Ascendente</option>
+        <option value="desc">Descendente</option>
+      </select>
       <ul className="flex space-x-4">
         <li>
           <Link to="/" className="text-white">Home</Link>

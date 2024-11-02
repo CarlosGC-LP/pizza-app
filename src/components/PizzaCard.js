@@ -5,7 +5,7 @@ const PizzaCard = ({ pizza }) => {
   const navigate = useNavigate();
 
   const handleBuyClick = () => {
-    navigate(`/pizza/${pizza.name}`); // Navega a la página de detalle de la pizza
+    navigate(`/pizza/${pizza.name}`); 
   };
 
   if (!pizza) {
@@ -17,7 +17,7 @@ const PizzaCard = ({ pizza }) => {
       <h2 className="text-lg font-bold mt-2">{pizza.name}</h2>
       <p className="text-sm">Precio: S/{pizza.price}</p>
       <p className="text-sm">Rating: {pizza.rating}</p>
-      <button className="bg-orange-500 px-4 py-2 mt-4 rounded-md" onClick={handleBuyClick}>Comprar</button>
+      <button className="bg-orange-500 px-4 py-2 mt-4 rounded-md" onClick={handleBuyClick}>Mas información</button>
     </div>
   );
 };

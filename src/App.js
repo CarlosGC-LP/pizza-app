@@ -11,14 +11,15 @@ import Contact from './components/Contact';
 import About from './components/About';
 
 function App() {
-  const [filter, setFilter] = useState(''); // Estado para el filtro
+  const [filter, setFilter] = useState(''); 
+  const [sortOrder, setSortOrder] = useState('asc'); 
 
   return (
     <Router>
       <div className="min-h-screen bg-black">
-        <Navbar filter={filter} setFilter={setFilter} />
+        <Navbar filter={filter} setFilter={setFilter} onSortChange={setSortOrder} />
         <Routes>
-          <Route path="/" element={<PizzaList filter={filter} />} />       
+          <Route path="/" element={<PizzaList filter={filter} sortOrder={sortOrder} />} />       
           <Route path="/payment" element={<Payment />} />
           <Route path="/pizza/:pizzaName" element={<PizzaDetail />} />
           <Route path="/order-status" element={<OrderStatus />} />

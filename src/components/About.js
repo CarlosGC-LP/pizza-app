@@ -44,7 +44,6 @@ const About = () => {
                 Ser la pizzería favorita de la comunidad, conocida por nuestra dedicación a la calidad y la innovación en cada pizza que servimos.
             </p>
             
-            {/* Imagen centrada desde una URL */}
             <div className="flex justify-center mt-8">
                 <img 
                 src={imageUrl} 

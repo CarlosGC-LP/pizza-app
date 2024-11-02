@@ -8,7 +8,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes manejar el envío del formulario
+
     console.log({ name, email, phone, message });
   };
 
