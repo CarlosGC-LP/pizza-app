@@ -23,10 +23,12 @@ const Navbar = ({ filter, setFilter, onSortChange }) => {
           onChange={(e) => setFilter(e.target.value)} 
         />
       )}
-      <select onChange={handleSortChange} className="ml-4 p-2 rounded-md">
-        <option value="asc">Ascendente</option>
-        <option value="desc">Descendente</option>
-      </select>
+      {showSearch && ( // Solo muestra el selector si estamos en la página principal
+        <select onChange={handleSortChange} className="ml-4 p-2 rounded-md text-gray-900">
+          <option value="asc">Ascendente</option>
+          <option value="desc">Descendente</option>
+        </select>
+      )}
       <ul className="flex space-x-4">
         <li>
           <Link to="/" className="text-white">Home</Link>
