@@ -1,17 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation();
+  const showSearch = location.pathname === '/';
+
   return (
     <nav className="bg-gray-900 p-4 flex justify-between items-center">
       <Link to="/" className="text-white text-2xl font-bold"> {/* Haciendo el título un enlace */}
         Pizza App
       </Link>
-      <input
-        type="text"
-        placeholder="Search for pizza.."
-        className="p-2 rounded-md text-gray-900 w-96 focus:bg-gray-300 transition duration-200"
-      />
+      {showSearch && (
+        <input
+          type="text"
+          placeholder="Search for pizza.."
+          className="p-2 rounded-md text-gray-900 w-96 focus:bg-gray-300 transition duration-200"
+        />
+      )}
       <ul className="flex space-x-4">
         <li>
           <Link to="/" className="text-white">Home</Link> {/* Enlace a la página principal */}
@@ -26,7 +31,7 @@ const Navbar = () => {
           <Link to="/contact" className="text-white mx-2">Contact</Link>
         </li>
         <li>
-          <Link to="/about" className="text-white mx-2">Acerca de Nosotros</Link>
+          <Link to="/about" className="text-white mx-2">About us</Link>
         </li>
       </ul>
     </nav>

@@ -13,7 +13,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-black">
+    <div className="flex items-center justify-center h-screen bg-gray-900">
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg max-w-sm">
         <h2 className="text-center text-xl font-bold mb-4">Contact Us</h2>
         <input

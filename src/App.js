@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-black">
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path="/" element={<PizzaList />} />       
           <Route path="/payment" element={<Payment />} />
