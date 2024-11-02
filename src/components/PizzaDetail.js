@@ -1,9 +1,10 @@
 // PizzaDetail.js
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const PizzaDetail = () => {
   const { pizzaName } = useParams();
+  const navigate = useNavigate(); // Define el hook de navegación
 
   // Aquí puedes obtener la información de la pizza de algún lugar
   // Por simplicidad, aquí hay un ejemplo de datos
@@ -97,9 +98,17 @@ const PizzaDetail = () => {
   // Encuentra la pizza correspondiente
   const pizza = pizzas.find((p) => p.name === pizzaName);
 
+  // Asegúrate de no retornar antes de la declaración de hooks
+  const [selectedSize, setSelectedSize] = useState(null);
+  const sizes = ['S', 'M', 'L']; // Tamaños disponibles
+
   if (!pizza) {
     return <div>Pizza no encontrada</div>;
   }
+
+  const handleBuyClick = () => {
+    navigate('/payment', { state: { total: pizza.price } });
+  };
 
   return (
     <div className="flex items-center justify-center h-screen"> {/* Centra vertical y horizontalmente */}
@@ -114,7 +123,28 @@ const PizzaDetail = () => {
         <p className="text-center mb-2">Calificación: {pizza.rating}</p>
         <p className="text-lg mb-2">Rating: {pizza.rating}</p>
         <p className="text-lg mb-4">{pizza.description}</p>
-        <button className="w-full mt-2 bg-orange-500 text-white p-2 rounded">Comprar</button>
+        
+        {/* Sección de tamaño */}
+        <div className="mb-4">
+          <p className="text-center font-semibold">Tamaño:</p>
+          <div className="flex justify-center space-x-2">
+            {sizes.map((size) => (
+              <button
+                key={size}
+                className={`w-16 h-10 border-2 rounded-md transition duration-200 ${
+                  selectedSize === size
+                    ? 'bg-orange-500 text-white border-orange-500'
+                    : 'border-gray-400 text-gray-900 hover:bg-orange-500 hover:text-white'
+                }`}
+                onClick={() => setSelectedSize(size)} // Cambia el tamaño seleccionado
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <button onClick={handleBuyClick} className="w-full mt-2 bg-orange-500 text-white p-2 rounded">Comprar</button>
       </div>
     </div>
   );
