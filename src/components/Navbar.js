@@ -19,6 +19,15 @@ const Navbar = () => {
         <li>
           <Link to="/payment" className="text-white">Payment</Link>
         </li>
+        <li>
+          <Link to="/login" className="text-white mx-2">Login</Link>
+        </li>
+        <li>
+          <Link to="/contact" className="text-white mx-2">Contact</Link>
+        </li>
+        <li>
+          <Link to="/about" className="text-white mx-2">Acerca de Nosotros</Link>
+        </li>
       </ul>
     </nav>
   );

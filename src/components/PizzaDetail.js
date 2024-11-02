@@ -107,7 +107,8 @@ const PizzaDetail = () => {
   }
 
   const handleBuyClick = () => {
-    navigate('/payment', { state: { total: pizza.price } });
+    const total = pizza.price; // Calcula el total según el precio de la pizza
+    navigate('/payment', { state: { pizza, total } });
   };
 
   return (
