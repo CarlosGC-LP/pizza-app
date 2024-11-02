@@ -23,7 +23,7 @@ const Navbar = ({ filter, setFilter, onSortChange }) => {
           onChange={(e) => setFilter(e.target.value)} 
         />
       )}
-      {showSearch && ( // Solo muestra el selector si estamos en la página principal
+      {showSearch && ( 
         <select onChange={handleSortChange} className="ml-4 p-2 rounded-md text-gray-900">
           <option value="asc">Ascendente</option>
           <option value="desc">Descendente</option>
@@ -32,6 +32,9 @@ const Navbar = ({ filter, setFilter, onSortChange }) => {
       <ul className="flex space-x-4">
         <li>
           <Link to="/" className="text-white">Home</Link>
+        </li>
+        <li>
+          <Link to="/blog" className="text-white mx-2">Recommendations</Link>
         </li>
         <li>
           <Link to="/payment" className="text-white">Payment</Link>
@@ -44,9 +47,6 @@ const Navbar = ({ filter, setFilter, onSortChange }) => {
         </li>
         <li>
           <Link to="/about" className="text-white mx-2">About us</Link>
-        </li>
-        <li>
-          <Link to="/blog" className="text-white mx-2">Blog</Link>
         </li>
       </ul>
     </nav>
