@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ filter, setFilter }) => { // Recibe filter y setFilter como props
   const location = useLocation();
   const showSearch = location.pathname === '/';
 
   return (
     <nav className="bg-gray-900 p-4 flex justify-between items-center">
-      <Link to="/" className="text-white text-2xl font-bold"> {/* Haciendo el título un enlace */}
+      <Link to="/" className="text-white text-2xl font-bold">
         Pizza App
       </Link>
       {showSearch && (
@@ -15,11 +15,13 @@ const Navbar = () => {
           type="text"
           placeholder="Search for pizza.."
           className="p-2 rounded-md text-gray-900 w-96 focus:bg-gray-300 transition duration-200"
+          value={filter} // Usa el valor del filtro
+          onChange={(e) => setFilter(e.target.value)} // Actualiza el filtro
         />
       )}
       <ul className="flex space-x-4">
         <li>
-          <Link to="/" className="text-white">Home</Link> {/* Enlace a la página principal */}
+          <Link to="/" className="text-white">Home</Link>
         </li>
         <li>
           <Link to="/payment" className="text-white">Payment</Link>
