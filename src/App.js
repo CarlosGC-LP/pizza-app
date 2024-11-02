@@ -15,7 +15,7 @@ function App() {
   const [filter, setFilter] = useState(''); 
   const [sortOrder, setSortOrder] = useState('asc'); 
 
-  return (
+  return ( 
     <Router>
       <div className="min-h-screen bg-black">
         <Navbar filter={filter} setFilter={setFilter} onSortChange={setSortOrder} />
