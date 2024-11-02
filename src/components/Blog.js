@@ -29,7 +29,7 @@ const Blog = () => {
 
   return (
     <div className="p-8 bg-gray-800">
-      <h1 className="text-4xl font-extrabold mb-10 text-center text-white">Our Pizza Recommendations</h1>
+      <h1 className="text-4xl font-extrabold mb-10 text-center text-white">Nuestras pizzas recomendadas</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {recommendedPizzas.map((pizza, index) => (
           <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
